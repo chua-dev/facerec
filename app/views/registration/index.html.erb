@@ -1,0 +1,43 @@
+<!--<script src="webcam.js"></script>-->
+<%= javascript_pack_tag 'webcam.js' %>
+<%= javascript_pack_tag 'register1-1' %>
+
+<div id="camera"></div>
+<button id="capture">Take Snapshot</button>
+<button id="reset">Reset</button>
+<button id="test">Test</button>
+<div class="img-container">
+    <div class="cap" id="i0"></div>
+    <div class="cap" id="i1"></div>
+    <div class="cap" id="i2"></div>
+    <div class="cap" id="i3"></div>
+    <div class="cap" id="i4"></div>
+</div>
+
+<form id="myform" method="post" action="myscript.php">
+    <input id="mydata" type="file" name="mydata"/>
+</form>
+
+
+<!--<script>
+Webcam.set({
+    width: 350,
+    height: 350,
+    image_format: 'jpeg',
+    jpeg_quality: 90
+})
+
+Webcam.attach("#camera")
+
+function take_snapshot() {
+    Webcam.snap(function(data_uri){
+        document.getElementById('results').innerHTML = 
+        '<img src="'+data_uri+'"/>';
+        console.log(data_uri)
+    })
+}
+</script>-->
+
+
+
+

@@ -1,0 +1,24 @@
+<%= form_for(@face, url: {action: 'create'}, :remote => true) do |form| %>
+  <% if face.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(face.errors.count, "error") %> prohibited this face from being saved:</h2>
+
+      <ul>
+        <% face.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :face_image, :class => 'custom-file-inpu', :id => 'face_form', :value => '' %>
+    <%= form.hidden_field :face_descriptor, :class => 'custom-file-inpu', :id => 'face_loc', :value => '' %>
+    <%= form.hidden_field :staff_id, value: '2' %>
+  </div>
+
+  <div class="actions sbumit-btn">
+    <br><%= form.submit 'Submit', :class => 'btn btn-warning hidden', :id => 'descriptor-btn' %>
+    <!--<%= link_to 'Back', faces_path, :class => 'btn btn-secondary' %>-->
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+<!--<%= link_to 'Back', faces_path %>-->
+<%= javascript_pack_tag 'webcam.js' %>
+<%= javascript_pack_tag 'register1-5' %>
+<%= javascript_pack_tag 'face-api' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 cam-space">
+        <h2 id='title'>Capture A Badge of Face(5)</h2>
+        <div class='half'>
+            <div id="camera"></div>
+            <img src='/store/front1.JPG' id='guide' width='270' height='230'>
+        </div>
+        <div class='row'>
+            <div class="col-sm-6 button-g">
+                <button id="capture">Snapshot</button>
+                <button id="reset">Reset</button>
+                <!--<button id="test">Test</button>-->
+            </div>
+            <div class='col-sm-6 width100 typewriter'>
+                <div class="box"><p id='typing'>Welcome, press snapshot to get started</p><i></i>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="col-sm-6 mauto">
+        <div class="row text-center text-lg-left mauto">
+            <div class="col-4">
+                <img class="img-fluid img-thumbnail" src="" alt="" id="cap1">
+            </div>
+            <div class="col-4">
+                <img class="img-fluid img-thumbnail" src="" alt="" id="cap2">
+            </div>
+            <div class="col-4">
+                <img class="img-fluid img-thumbnail" src="" alt="" id="cap3">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <img class="img-fluid img-thumbnail" src="" alt="" id="cap4">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <img class="img-fluid img-thumbnail" src="" alt="" id="cap5">
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'form', face: @face %>

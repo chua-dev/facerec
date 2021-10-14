@@ -1,0 +1,23 @@
+<%= form_for(@descriptor, url: {action: 'new_descriptor'}, :remote => true) do |form| %>
+  <% if descriptor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(descriptor.errors.count, "error") %> prohibited this face from being saved:</h2>
+
+      <ul>
+        <% descriptor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :face_location, :class => 'custom-file-inpu', :id => 'face_loc', :value => '' %>
+    <!--<%= form.text_field :face_location, :class => 'custom-file-inpu', :id => 'face_loc', :value => '' %>-->
+    <%= form.hidden_field :staff_id, value: '2' %>
+  </div>
+
+  <div class="actions sbumit-btn">
+    <br><%= form.submit 'Submit', :class => 'btn btn-success hidden', :id => 'descriptor-btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Descriptor</h1>
+<br>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr id="t-row">
+      <th>Face Location</th>
+      <th>Staff Id</th>
+      <th>Button</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @descriptors.each do |d| %>
+      <tr>
+        <td class="c"><%= d.face_location %></td>
+        <td class="c"><%= d.staff_id%><td>
+        <td><%= link_to 'Delete', delete_descriptor_path(d), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

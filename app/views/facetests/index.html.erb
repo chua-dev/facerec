@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Facetests</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Face url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facetests.each do |facetest| %>
+      <tr>
+        <td><%= facetest.face_url %><img src="<%= facetest.face_url %>" width="100" height="100"></td>
+        <td><%= link_to 'Show', facetest %></td>
+        <td><%= link_to 'Edit', edit_facetest_path(facetest) %></td>
+        <td><%= link_to 'Destroy', facetest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<img src="/uploads/face1.jpeg" width="100" height="100">
+
+<%= link_to 'New Facetest', new_facetest_path %>

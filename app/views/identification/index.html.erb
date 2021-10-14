@@ -1,0 +1,44 @@
+<%= javascript_pack_tag 'face-api' %>
+<div class="row">
+    <div class="col-sm-8">
+        <div class='heading'>
+            <h5>Go Jupyter Face Attendance</h5>
+        </div>
+        <div style="position: relative" class="margin">
+            <video id="inputVideo" autoplay muted playsinline></video>
+            <canvas id="overlay" />
+        </div>
+        <p id='error'></p>
+        <canvas id="bigss" width="700" height="600"></canvas>
+    </div>
+    <div class="col-sm-4 box4">
+        <div class="detail">
+            <div class="test">
+                <img class="image" id="real" src='' alt='scanning..' width="190" height="160"/>
+                
+                <img class="image" id="detect" src='' alt='scanning..' width="190" height="160"/>
+                <p id="spoofResult"></p>
+                <p id="realname"></p>
+            </div>
+            <div class="test">
+                <img class="image" id="exp-pic" src='' alt='scanning..' width="190" height="160"/>
+                <p id="exp"></p>
+            </div>
+            <div class="test">
+                <img class="image" id="age-pic" src='' alt='scanning..' width="190" height="160"/>
+                <p id="age"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function reloadIt() {
+        if (window.location.href.substr(-2) !== "?r") {
+            window.location = window.location.href + "?r";
+        }
+    }
+</script>
+<%= javascript_pack_tag 'script3-16' %>
+
+
+    

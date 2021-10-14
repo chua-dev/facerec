@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Register Your Face</h1>
+<br>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr id="t-row">
+      <th>Label 1</th>
+      <th>Label 2</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @faces.each do |face| %>
+      <tr>
+        <td class="c"><img src="<%= face.face_image.url %>" width="160" height="150" class="center"><i class="c" id="f1"></i></td>
+        <td class="c text-8px"><p class="text-8px"><%= face.face_descriptor %></p></td>
+        <!--<td class="c"><%= link_to 'Show', face, class:"btn btn-info" %></td>-->
+        <!--<td><%= link_to 'Edit', edit_face_path(face), class:"btn btn-warning" %></td>-->
+        <td><%= link_to 'Delete', face, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Create New Face', new_face_path, class:"btn btn-secondary" %>
+<br>
+
+<section id="e-section">
+  <i id="note"></i><p id="err-title"></p>
+  <ul id="verify">
+  </ul>
+  <p id="recommended"></p>
+</section>
+
+
+<!--<h4>Note</h4>
+<p>Each staff can only register one batch (5 photos together).</p>
+<p>If you want to re-register, please delete the previous batch.</p>-->
