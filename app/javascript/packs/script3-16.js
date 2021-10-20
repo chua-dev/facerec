@@ -2,6 +2,11 @@
 import * as faceapi from 'face-api.js'
 //import * as tf from `@tensorflow/tfjs`
 
+console.log('work')
+let theVid = document.getElementById('inputVideo')
+theVid.msHorizontalMirror = true
+theVid.play()
+
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
   //faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
@@ -71,6 +76,8 @@ async function setUp() {
 
 async function onPlay() {
   const videoEl = $('#inputVideo').get(0)
+  let theVid = document.getElementById('inputVideo')
+  theVid.msHorizontalMirror = true
   if(videoEl.paused || videoEl.ended) //|| !isFaceDetectionModelLoaded())
     return setTimeout(() => onPlay())
 
@@ -83,6 +90,7 @@ async function onPlay() {
     //faceapi.draw.drawDetections(canvas, faceapi.resizeResults(detection, dims), {label: 'I am box'})
 
     const box = detection.detection.box
+    //const drawBox = new faceapi.draw.DrawBox(box, { label: 'I am the box' })
     const drawBox = new faceapi.draw.DrawBox(box, { label: 'I am the box' })
     drawBox.draw(canvas)
 

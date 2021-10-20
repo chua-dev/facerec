@@ -9,6 +9,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+
 }
 
 canvas {
@@ -112,4 +116,10 @@ body {
 }
 #detect {
     border: 3px solid #228B22;
+}
+
+#inputVideo {
+    //transform: rotateY(180deg);
+    //-webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    //-moz-transform:rotateY(180deg); /* Firefox */
 }
