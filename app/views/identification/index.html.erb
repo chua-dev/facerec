@@ -4,12 +4,15 @@
         <div class='heading'>
             <h5>Go Jupyter Face Attendance</h5>
         </div>
+
         <label>Select Video Source (Camera)</label>
         <select id="video-source"></select>
         <label>Select Audio Source (Microphone)</label>
         <select id="audio-source"></select>
+        <label>Live Preview:</label>
+        
         <div style="position: relative" class="margin">
-            <video id="inputVideo" muted playsinline></video>
+            <video id="inputVideo" autoplay muted playsinline></video>
             <canvas id="overlay" />
         </div>
         <p id='error'></p>
