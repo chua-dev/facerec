@@ -1,6 +1,7 @@
 //import '@tensorflow/tfjs-node'
 import * as faceapi from 'face-api.js'
 //import * as tf from `@tensorflow/tfjs`
+//run()
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -22,7 +23,7 @@ const age = document.getElementById("age")
 ///////////// CHECK AVAILABLE DEVICE
 
 let videoSourcesSelect = document.getElementById("video-source");
-let audioSourcesSelect = document.getElementById("audio-source");
+//let audioSourcesSelect = document.getElementById("audio-source");
 
 // Create Helper to ask for permission and list devices
 let MediaStreamHelper = {
@@ -33,25 +34,28 @@ let MediaStreamHelper = {
         return navigator.mediaDevices.enumerateDevices();
     },
     // Request user permissions to access the camera and video
-    requestStream: function() {
-        if (this._stream) {
-            this._stream.getTracks().forEach(track => {
-                track.stop();
-            });
-        }
+    requestStream: async function() {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: {} })
+      const videoEl = $('#inputVideo').get(0)
+      videoEl.srcObject = stream
+      if (this._stream) {
+          this._stream.getTracks().forEach(track => {
+              track.stop();
+          });
+      }
 
-        const audioSource = audioSourcesSelect.value;
-        const videoSource = videoSourcesSelect.value;
-        const constraints = {
-            audio: {
-                deviceId: audioSource ? {exact: audioSource} : undefined
-            },
-            video: {
-                deviceId: videoSource ? {exact: videoSource} : undefined
-            }
-        };
-    
-        return navigator.mediaDevices.getUserMedia(constraints);
+      //const audioSource = audioSourcesSelect.value;
+      const videoSource = videoSourcesSelect.value;
+      const constraints = {
+          //audio: {
+          //    deviceId: audioSource ? {exact: audioSource} : undefined
+          //},
+          video: {
+              deviceId: videoSource ? {exact: videoSource} : undefined
+          }
+      };
+  
+      return navigator.mediaDevices.getUserMedia(constraints);
     }
 };
 
@@ -61,7 +65,7 @@ MediaStreamHelper.requestStream().then(function(stream){
   MediaStreamHelper._stream = stream;
 
   // Select the Current Streams in the list of devices
-  audioSourcesSelect.selectedIndex = [...audioSourcesSelect.options].findIndex(option => option.text === stream.getAudioTracks()[0].label);
+  //audioSourcesSelect.selectedIndex = [...audioSourcesSelect.options].findIndex(option => option.text === stream.getAudioTracks()[0].label);
   videoSourcesSelect.selectedIndex = [...videoSourcesSelect.options].findIndex(option => option.text === stream.getVideoTracks()[0].label);
 
   // Play the current stream in the Video element
@@ -82,10 +86,10 @@ MediaStreamHelper.requestStream().then(function(stream){
                   videoSourcesSelect.appendChild(option);
                   break;
               // Append device to list of Microphone
-              case "audioinput":
-                  option.text = device.label || `Microphone ${videoSourcesSelect.length + 1}`;
-                  audioSourcesSelect.appendChild(option);
-                  break;
+              //case "audioinput":
+              //    option.text = device.label || `Microphone ${videoSourcesSelect.length + 1}`;
+              //    audioSourcesSelect.appendChild(option);
+              //    break;
           }
 
           console.log(device);
@@ -107,12 +111,12 @@ videoSourcesSelect.onchange = function(){
   });
 };
 
-audioSourcesSelect.onchange = function(){
-  MediaStreamHelper.requestStream().then(function(stream){
-      MediaStreamHelper._stream = stream;
-      theVid.srcObject = stream;
-  });
-};
+//audioSourcesSelect.onchange = function(){
+//  MediaStreamHelper.requestStream().then(function(stream){
+//      MediaStreamHelper._stream = stream;
+//      theVid.srcObject = stream;
+//  });
+//};
 
 ///////////// END AVAILABLE DEVICE
 
@@ -221,7 +225,6 @@ async function run() {
 $(document).ready(function() {
   //renderNavBar('#navbar', 'webcam_face_detection')
   //initFaceDetectionControls()
-  run()
 })
 
 const vid = document.getElementById('inputVideo')
