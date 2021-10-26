@@ -5,11 +5,22 @@
             <h5>Go Jupyter Face Attendance</h5>
         </div>
 
+        <!--
         <label>Select Video Source (Camera)</label>
         <select id="video-source"></select>
         <label>Select Audio Source (Microphone)</label>
         <select id="audio-source"></select>
-        <label>Live Preview:</label>
+        <label>Live Preview:</label> -->
+
+        <div class="select">
+            <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
+        </div>
+        <div class="select">
+            <label for="audioOutput">Audio output destination: </label><select id="audioOutput"></select>
+        </div>
+        <div class="select">
+            <label for="videoSource">Video source: </label><select id="videoSource"></select>
+        </div>
         
         <div style="position: relative" class="margin">
             <video id="inputVideo" autoplay muted playsinline></video>
