@@ -1,7 +1,7 @@
 //import '@tensorflow/tfjs-node'
 import * as faceapi from 'face-api.js'
 //import * as tf from `@tensorflow/tfjs`
-//run()
+run()
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -30,7 +30,10 @@ let MediaStreamHelper = {
     // Property of the object to store the current stream
     _stream: null,
     // This method will return the promise to list the real devices
-    getDevices: function() {
+    getDevices: async function() {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: {} })
+        const videoEl = $('#inputVideo').get(0)
+        videoEl.srcObject = stream
         return navigator.mediaDevices.enumerateDevices();
     },
     // Request user permissions to access the camera and video
