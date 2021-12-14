@@ -256,6 +256,7 @@ async function onPlay() {
   const detection = await faceapi.detectSingleFace(videoEl, new faceapi.TinyFaceDetectorOptions({inputSize: 224})).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor()
   
   if (detection) {
+    console.log(detection.descriptor)
     const canvas = $('#overlay').get(0)
     const dims = faceapi.matchDimensions(canvas, videoEl, true)
     faceapi.resizeResults(detection, dims)
