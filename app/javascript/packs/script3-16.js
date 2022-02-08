@@ -1,7 +1,10 @@
 //import '@tensorflow/tfjs-node'
-import * as faceapi from 'face-api.js'
+//import * as faceapi from 'face-api.js'
+//import * as faceapi from '@vladmandic/face-api';
+//import * as faceapi from 'vladjs/face-api.js';
 //import * as tf from `@tensorflow/tfjs`
 run()
+console.log('changeline2')
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
