@@ -3,16 +3,18 @@
 //import * as faceapi from '@vladmandic/face-api';
 //import * as faceapi from 'vladjs/face-api.js';
 //import * as tf from `@tensorflow/tfjs`
+
+console.log('script3-16 working')
+console.log(faceapi.nets)
 run()
-console.log('changeline2')
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+  faceapi.nets.tinyFaceDetector.loadFromUri('/model'),
   //faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
-  faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-  faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('/models'),
-  faceapi.nets.ageGenderNet.loadFromUri('/models')
+  faceapi.nets.faceLandmark68Net.loadFromUri('/model'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('/model'),
+  faceapi.nets.faceExpressionNet.loadFromUri('/model'),
+  faceapi.nets.ageGenderNet.loadFromUri('/model')
 ]).then(setUp)
 
 let faceRecord = []
